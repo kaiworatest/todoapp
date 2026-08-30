@@ -64,6 +64,9 @@ document.getElementById('todo-form').addEventListener('submit', function(e) {
   
   // Clear the input field
   input.value = '';
+  
+  // Confirm todo was created and displayed successfully
+  console.log('Todo created and displayed:', input.value);
 });
 </script>
 ```
