@@ -38,4 +38,32 @@ To create a new todo, users can:
 <div id="error-message" style="color: red; display: none;"></div>
 
 <ul id="todo-list"></ul>
+
+<script>
+document.getElementById('todo-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const input = document.getElementById('todo-input');
+  const errorMessage = document.getElementById('error-message');
+  const todoList = document.getElementById('todo-list');
+  
+  // Validate that the title is not empty
+  if (input.value.trim() === '') {
+    errorMessage.textContent = 'Todo title cannot be empty';
+    errorMessage.style.display = 'block';
+    return;
+  }
+  
+  // Clear error message if validation passes
+  errorMessage.style.display = 'none';
+  
+  // Create and display the new todo
+  const li = document.createElement('li');
+  li.textContent = input.value;
+  todoList.appendChild(li);
+  
+  // Clear the input field
+  input.value = '';
+});
+</script>
 ```
