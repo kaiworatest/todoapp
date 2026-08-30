@@ -19,3 +19,23 @@ This is a simple todo application that allows users to:
 1. Clone the repository
 2. Install dependencies using `npm install`
 3. Run the application using `npm start`
+
+## Todo Creation UI
+
+To create a new todo, users can:
+
+1. Enter a title for their todo in the input field
+2. Click the "Add" button to submit the todo
+
+### Form Elements
+
+```html
+<form id="todo-form">
+  <input type="text" id="todo-input" placeholder="Enter todo title" required>
+  <button type="submit">Add</button>
+</form>
+
+<div id="error-message" style="color: red; display: none;"></div>
+
+<ul id="todo-list"></ul>
+```
