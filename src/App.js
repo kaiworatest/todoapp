@@ -1,31 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  const [todos, setTodos] = useState([]);
-  
-  const addTodo = (todoText) => {
-    if (todoText.trim() !== '') {
-      setTodos([...todos, { id: Date.now(), text: todoText, completed: false }]);
-    }
-  };
-  
-  const removeTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  };
-  
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Todo List</h1>
-        <p>Total todos: {todos.length}</p>
-        <TodoForm onAddTodo={addTodo} />
-        <TodoList todos={todos} onRemoveTodo={removeTodo} />
-      </header>
-    </div>
-  );
-}
-
 function TodoForm({ onAddTodo }) {
   const [inputValue, setInputValue] = useState('');
   
@@ -58,6 +33,31 @@ function TodoList({ todos, onRemoveTodo }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function App() {
+  const [todos, setTodos] = useState([]);
+  
+  const addTodo = (todoText) => {
+    if (todoText.trim() !== '') {
+      setTodos([...todos, { id: Date.now(), text: todoText, completed: false }]);
+    }
+  };
+  
+  const removeTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+  
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Todo List</h1>
+        <p>Total todos: {todos.length}</p>
+        <TodoForm onAddTodo={addTodo} />
+        <TodoList todos={todos} onRemoveTodo={removeTodo} />
+      </header>
+    </div>
   );
 }
 
