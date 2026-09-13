@@ -1,20 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-
-  const addTodo = () => {
-    setTodos([...todos, { id: Date.now(), text: `Todo ${todos.length + 1}` }]);
-  };
-
-  const removeTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
-  };
-
+const TodoList = ({ todos, addTodo, removeTodo }) => {
   return (
     <div>
       <div>
-        <p>Total todos: {todos.length}</p>
         <button onClick={addTodo}>Add Todo</button>
       </div>
       <ul>

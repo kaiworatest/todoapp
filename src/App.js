@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import TodoList from './components/TodoList';
+import Counter from './components/Counter';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -16,18 +18,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Todo App</h1>
-        <div>
-          <p>Total todos: {todos.length}</p>
-          <button onClick={addTodo}>Add Todo</button>
-        </div>
-        <ul>
-          {todos.map(todo => (
-            <li key={todo.id}>
-              {todo.text}
-              <button onClick={() => removeTodo(todo.id)}>Remove</button>
-            </li>
-          ))}
-        </ul>
+        <Counter count={todos.length} />
+        <TodoList todos={todos} addTodo={addTodo} removeTodo={removeTodo} />
       </header>
     </div>
   );
