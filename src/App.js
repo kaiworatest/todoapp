@@ -53,7 +53,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Todo List</h1>
-        <p>Total todos: {todos.length}</p>
+        <p>Active todos: {todos.filter(todo => !todo.completed).length}</p>
+<p>Total todos: {todos.length}</p>
         <TodoForm onAddTodo={addTodo} />
         <TodoList todos={todos} onRemoveTodo={removeTodo} />
       </header>
