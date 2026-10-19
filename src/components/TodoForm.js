@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const TodoForm = ({ onAddTodo }) => {
+const TodoForm = ({ onAddTodo, todos }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e) => {
@@ -11,16 +11,21 @@ const TodoForm = ({ onAddTodo }) => {
     }
   };
 
+  const completedCount = todos.filter(todo => todo.completed).length;
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Add a new todo..."
-      />
-      <button type="submit">Add</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Add a new todo..."
+        />
+        <button type="submit">Add</button>
+      </form>
+      <p>Completed: {completedCount} of {todos.length}</p>
+    </div>
   );
 };
 
